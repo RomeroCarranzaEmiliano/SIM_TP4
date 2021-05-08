@@ -1,0 +1,54 @@
+/*
+
+*/
+
+body {
+    margin: 0px; padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 20% 30% 50%;
+    grid-template-rows: 10% 90%;
+
+}
+
+.header {
+    position: relative;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    background-color: #cc99ff;
+    padding: none;
+}
+
+#conn_state {
+    position: relative;
+
+    float: left;
+
+    width: 20%;
+    height: 10%;
+
+    font-size: 100%;
+
+    background-color: white;
+    border: none;
+    color: green;
+
+    font-weight: bold;
+}
+
+#ws_test {
+    position: fixed;
+    float: right;
+
+    top: 20%;
+    left: 50%;
+
+    width: 10%;
+    height: 10%;
+}

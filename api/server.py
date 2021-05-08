@@ -23,18 +23,28 @@ async def server(websocket, path):
         Función que define al servidor websocket
     """
 
-    # Se recibe el evento
-    event = await websocket.recv()
+    # Loop principal para mantener la conexión
+    while(True):
+        # Se recibe el evento
+        event = await websocket.recv()
 
-    # Manejo de un evento ws-test a modo de prueba
-    if event == "ws-test":
-        print("[TEST] ws api tested -> OK")
-        await websocket.send("OK")
+        # Manejo de un evento ws-test a modo de prueba
+        if event == "ws-test":
+            print("[TEST] ws api tested -> OK")
+            await websocket.send("OK")
+
+        print("[EVENT] Incoming event")
+
 
 def run():
     """
         Iniciar el servidor en localhost:8080
     """
+    print("Iniciando servidor...")
+
     start_server = websockets.serve(server, "localhost", 8080)
     asyncio.get_event_loop().run_until_complete(start_server)
     asyncio.get_event_loop().run_forever()
+
+
+run() # <- solo para testear, borrar o se ejecutará automaticamente al importar en __main__.py
