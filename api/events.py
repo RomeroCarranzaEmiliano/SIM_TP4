@@ -9,6 +9,7 @@
 """
 
 # IMPORTS #########################################################################################
+import negocio.montecarlo
 ###################################################################################################
 
 
@@ -19,6 +20,8 @@ def ws_test():
         retorna un "OK", esta definición de evento es redundante, es solo para ilustrar
     """
     return "OK"
+
+def calcular_montecarlo():
 
 
 # Diccionario de eventos
