@@ -10,18 +10,81 @@
 <body>
 <div class="grid-container">
 
-    <div id="conn_state" title="chequear conexión">...reconectando</div>
-    <button id="ws_test" title="testear conexión">test</button>
-
     <div class="header">
-        <h1 id="app_name">Trabajo Práctico 4 - SIM - 4k2</h1>
-    </div>
-    <div class="chart">
+        <h1 id="app_name">SIM TP4 - Montecarlo</h1>
     </div>
 
     <div class="options">
+        <div class="parameter" id="restriction">Lleven menos de: <input class="inp" id="inp_restriction"></div>
+        <div class="parameter" id="N">Cantidad de proyectos: <input class="inp" id="inp_N"></div>
+        <div class="parameter" id="i">Mostrar desde: <input class="inp" id="inp_i"></div>
+        <div class="parameter" id="j">Mostrar hasta: <input class="inp" id="inp_j"></div>
+
+        <button id="calculate">CALCULAR</button>
+
+        <div id="conn_options">
+            <button id="ws_test" title="testear conexión">conectar</button>
+            <div id="conn_state" title="chequear conexión">...reconectando</div>
+        </div>
+
     </div>
-    <div class="display"></div>
+
+    <div class="display">
+         <table id="result_table">
+             <tr id="table_header">
+                 <th rowspan="2">n Proyecto</th>
+                 <th colspan="2">A</th>
+                 <th colspan="2">B</th>
+                 <th colspan="2">C</th>
+                 <th colspan="2">D</th>
+                 <th colspan="3" id="result_tag">Resultado: 25%</th>
+             </tr>
+             <tr>
+                 <th>RND</th>
+                 <th>Semana</th>
+                 <th>RND</th>
+                 <th>Semana</th>
+                 <th>RND</th>
+                 <th>Semana</th>
+                 <th>RND</th>
+                 <th>Semana</th>
+
+                 <th>Total</th>
+                 <th>Exito</th>
+                 <th>Exitos acumulados</th>
+             </tr>
+
+             <tr>
+                 <td>1</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>40</td>
+                 <td>0</td>
+                 <td>0</td>
+             </tr>
+
+             <tr>
+                 <td>1</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>0.50</td>
+                 <td>10</td>
+                 <td>40</td>
+                 <td>0</td>
+                 <td>0</td>
+             </tr>
+        </table>
+    </div>
 
 
 </div>
