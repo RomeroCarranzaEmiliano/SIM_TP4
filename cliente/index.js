@@ -2,6 +2,11 @@
     index.js
 
     Lógica para el cliente
+
+    !IMPORTANTE! todos los eventos que se envian se deben enviar en un vector donde la posición
+    cero corresponde al nombre del evento, el siguiente debe contener una tupla de parametros
+    o ser inexistente
+    ["nombre_evento", (param1, param2, param3, paramN)]
 */
 
 
@@ -62,7 +67,8 @@ $(document).ready(function(){
     // Para testear si el servidor ws funciona
     $("#ws_test").click(function() {
         console.log("[TEST] Testeando conexión con el servidor");
-        socket.send("ws-test");
+        event = `{"event_name": "ws-test", "parameters": []}`
+        socket.send(event);
     });
 
 
