@@ -15,10 +15,10 @@
     </div>
 
     <div class="options">
-        <div class="parameter" id="restriction">Lleven menos de: <input class="inp" id="inp_restriction"></div>
-        <div class="parameter" id="N">Cantidad de proyectos: <input class="inp" id="inp_N"></div>
-        <div class="parameter" id="i">Mostrar desde: <input class="inp" id="inp_i"></div>
-        <div class="parameter" id="j">Mostrar hasta: <input class="inp" id="inp_j"></div>
+        <div class="parameter" id="restriction">Lleven menos de: <input class="inp" id="inp_restriction" value="36" type="number"></div>
+        <div class="parameter" id="N">Cantidad de proyectos: <input class="inp" id="inp_N" value="50000" type="number"></div>
+        <div class="parameter" id="i">Mostrar desde: <input class="inp" id="inp_i" value="200" type="number"></div>
+        <div class="parameter" id="j">Mostrar hasta: <input class="inp" id="inp_j" value="300" type="number"></div>
 
         <button id="calculate">CALCULAR</button>
 
@@ -27,6 +27,7 @@
             <div id="conn_state" title="chequear conexión">...reconectando</div>
         </div>
 
+        <div id="shadow"></div>
     </div>
 
     <div class="display">
@@ -37,7 +38,7 @@
                  <th colspan="2">B</th>
                  <th colspan="2">C</th>
                  <th colspan="2">D</th>
-                 <th colspan="3" id="result_tag">Resultado: 25%</th>
+                 <th colspan="3" id="result_tag">Resultado: -</th>
              </tr>
              <tr>
                  <th>RND</th>
@@ -52,36 +53,6 @@
                  <th>Total</th>
                  <th>Exito</th>
                  <th>Exitos acumulados</th>
-             </tr>
-
-             <tr>
-                 <td>1</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>40</td>
-                 <td>0</td>
-                 <td>0</td>
-             </tr>
-
-             <tr>
-                 <td>1</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>0.50</td>
-                 <td>10</td>
-                 <td>40</td>
-                 <td>0</td>
-                 <td>0</td>
              </tr>
         </table>
     </div>
