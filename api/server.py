@@ -4,18 +4,13 @@
     Servidor websocket para servir la api al cliente en el navegador
 """
 
+# IMPORTS #########################################################################################
 import asyncio
 import websockets
-
-""" <- ignorar esto
-async def hello(websocket, path):
-    name = await websocket.recv()
-    print(f"< {name}")
-    greeting = f"Hello {name}!"
-
-    await websocket.send(greeting)
-    print(f"> {greeting}")
-"""
+import demjson
+import json
+import events
+###################################################################################################
 
 
 async def server(websocket, path):
@@ -26,15 +21,32 @@ async def server(websocket, path):
     # Loop principal para mantener la conexión
     while(True):
         # Se recibe el evento
-        event = await websocket.recv()
+        json_event = await websocket.recv()
+        print("[EVENT] Incoming")
 
-        # Manejo de un evento ws-test a modo de prueba
-        if event == "ws-test":
-            print("[TEST] ws api tested -> OK")
-            await websocket.send("OK")
+        # Transforma objeto json a diccionario python
+        event = demjson.decode(json_event)
 
-        print("[EVENT] Incoming event")
+        # Extraer información del evento
+        event_name = str(event["event_name"])
+        event_parameters = event["parameters"]
 
+        print("[EVENT NAME] ", event_name)
+        print("[EVENT PARAMETERS] ", str(event_parameters))
+
+        # Buscar
+        if event_name in events.dictionary:
+            result = events.dictionary[event_name](event_parameters)
+
+            # Codificar resultado a json
+            encoded_result = json.dumps(result)
+
+            print(str(result))
+
+            # Enviar respuesta al cliente
+            await websocket.send(str(result))
+        else:
+            raise Exception("[ERROR] el evento recibido no existe en el diccionario de eventos")
 
 def run():
     """
