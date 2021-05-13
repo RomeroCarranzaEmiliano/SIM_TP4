@@ -67,11 +67,10 @@ $(document).ready(function(){
         if(event.data != "OK") {
             console.log(event.data);
             // Obtener datos
-            //var data = JSON.parse(event.data);
+            var data = JSON.parse(event.data);
             //console.log(data);
-            var data = event.data;
 
-            var result = data[0];
+            var result = data[0].toFixed(2);
             var tabla = data[1];
 
             // Resetear la tabla
@@ -107,6 +106,14 @@ $(document).ready(function(){
             var i;
             for(i=0; i<tabla.length; i++) {
                 row_data = tabla[i];
+
+                // Traducir exitos de 0,1 a NO,SI
+                if (row_data[10] == 0){
+                    row_data[10] = "NO"
+                } else {
+                    row_data[10] = "SI"
+                }
+
                 new_row = `<tr>
                          <td>${row_data[0]}</td>
                          <td>${row_data[1]}</td>
@@ -190,7 +197,7 @@ $(document).ready(function(){
         var j = $("#inp_j").val();
         var N = $("#inp_N").val();
 
-        if(j <= 0 || dif < 0 || j > N - 1) {
+        if(j <= 0 || dif < 0 || j > N) {
             $("#inp_j").css({"border-color":"red"});
         } else {
             $("#inp_j").css({"border-color":"gray"});
