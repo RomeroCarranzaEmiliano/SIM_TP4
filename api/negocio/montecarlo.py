@@ -69,9 +69,9 @@ def calcular(menos_de, cantidad, desde, hasta):
         total = linea[2]+linea[4]+linea[6]+linea[8]
 
         # Calcular exito
-        exito = "No"
+        exito = 0
         if total < menos_de:                #Discutr el por lo menos del enunciado
-            exito = "Si"
+            exito = 1
             acumulado_anterior += 1
 
         '''
