@@ -1,0 +1,26 @@
+
+
+1) Se truncan los numeros random antes de ser mostrado...Antes se redondeaban
+
+2) Se quito redundancia de codigo en montecarlo.py
+
+3) Se cambio el contador de exito.. en donde antes se ponia 1-0, ahora es si-no
+
+4)Se pide discutir la muestra de la probabilidad resultado (Se muestra porcentaje cuando se pide probabilidad)
+
+5) Se pide discutir cuando contar como exito un experimetno (montecarlo.py)
+
+6) Se cambio el metodo de validar error en semana.py
+
+7) Se da la posibilidad que el usuario pueda poner un "hasta" igual al ultimo experimento
+    (IMPORTANTE, PARA QUE ESTO FUNCIONE SE DEBE DAR LA POSIBILIDAD DE QUE EL USUARIO LO INGRESE "INTERFAZ GRAFICA")
+
+
+
+
+
+
+
+
+
+

@@ -14,7 +14,7 @@ def calcular(actividad, rnd):
         devuelve la cantidad de semanas calculada en base a la actividad
         y el rnd
     """
-    semanas = ""
+    semanas = -1            #<----- setee la semana en para q funcione la excepecion
 
     if actividad == "a" or actividad == "A":
         if round(rnd, 2) < 0.35:
