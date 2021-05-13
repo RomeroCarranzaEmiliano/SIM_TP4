@@ -3,10 +3,16 @@
 """
 
 # IMPORTS #########################################################################################
-import negocio.semana as semana
+import api.negocio.semana as semana
 import random
+import math
 ###################################################################################################
 
+def convertir (nro):
+    cadena = str(nro)
+    cadena = cadena[0:4]
+    nro = float(cadena)
+    return nro
 
 def calcular_linea():
     """
@@ -25,7 +31,7 @@ def calcular_linea():
         semanas_calculadas = semana.calcular(actividad, rnd)
 
         # Agregar a la linea
-        linea.append(round(rnd, 3))
+        linea.append(convertir(rnd))
         linea.append(semanas_calculadas)
 
     # Agregar el resto de campos de la linea
@@ -63,29 +69,33 @@ def calcular(menos_de, cantidad, desde, hasta):
         total = linea[2]+linea[4]+linea[6]+linea[8]
 
         # Calcular exito
-        exito = 0
-        if total < menos_de:
-            exito = 1
+        exito = "No"
+        if total < menos_de:                #Discutr el por lo menos del enunciado
+            exito = "Si"
+            acumulado_anterior += 1
 
+        '''
         # Calcular acumulado
-        acumulado = acumulado_anterior + exito
-        acumulado_anterior = acumulado
-
+        redundancia de codigo
+        #acumulado = acumulado_anterior + exito
+        #acumulado_anterior = acumulado
+        '''
         # Completar la linea de montecarlo con el nro de experimento, exitos y acumulado
         linea[0] = i+1
         linea[9] = total
         linea[10] = exito
-        linea[11] = acumulado
+        linea[11] = acumulado_anterior
 
         # Si se encuentra entre las lineas a mostrar, guardar en vector en la tabla
         if i+1 >= desde and i+1 <= hasta:
             tabla.append(linea)
 
     # Se calcula el resultado
-    resultado = (linea[-1]/cantidad)*100
+    resultado = (linea[-1]/cantidad)*100            #Calcula porcentaje, pero se pide P()   -> EN ESTE CASO REDONDEAR A 2
 
     # Agregar la ultima linea a la tabla a mostrar
-    tabla.append(linea)
+    if hasta != cantidad:
+        tabla.append(linea)
 
     respuesta = [resultado, tabla]
 
