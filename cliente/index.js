@@ -65,9 +65,11 @@ $(document).ready(function(){
 
         // calcular_montecarlo
         if(event.data != "OK") {
+            console.log(event.data);
             // Obtener datos
-            var data = JSON.parse(event.data);
-            console.log(data);
+            //var data = JSON.parse(event.data);
+            //console.log(data);
+            var data = event.data;
 
             var result = data[0];
             var tabla = data[1];
